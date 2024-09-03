@@ -6,6 +6,7 @@ import 'package:kemo_islami_app_2/Screens/Home/Tabs/Sebha/sebha.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Setting/setting.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
+import 'package:kemo_islami_app_2/Wedgits/app_scaffold.dart';
 
 class Home extends StatefulWidget 
 {
@@ -18,50 +19,20 @@ class Home extends StatefulWidget
 
 class _HomeState extends State<Home> 
 {
-  int selected_tab_index = 0;
+  int selected_tab_index = 1;
   List<Widget> tabs = [Quran() , Ahadeth() , My_Radio() , Sebha() , Setting()];
   //! Note: we use List to make move to another tabs more flexible
 
   @override
   Widget build(BuildContext context) 
   {
-    return Container
+    return App_Scaffold
     (
-      decoration: const BoxDecoration
-      (
-        image: DecorationImage(image: AssetImage(App_Assets.background))
-      ),
-
-      //! if you want to put a color in container and in the container 
-      //! BoxDecoration you must put the color in the BoxDecoration
-      //! not outside it
-
-      child: Scaffold
-      (
-        backgroundColor: Colors.transparent,
-        appBar: build_Appbar(),
-
-        bottomNavigationBar: build_bottom_Navigation_Bar(),
-
-        body: tabs[selected_tab_index],
-
-
-      ),
+      appBar_title: "Islami",
+      body: tabs[selected_tab_index],
+      bottomNavigationBar: build_bottom_Navigation_Bar(),
     );
   }
-
-  AppBar build_Appbar() => AppBar
-  (
-    title: Text("Islami"),
-    centerTitle: true,
-    backgroundColor: Colors.transparent,
-    elevation: 0, 
-    //! وظيفة elevathion
-    //! انو بيعملك ظل عشان يحسسك ان AppBar
-    //! مرفوع لفوق 
-    //! و لما خلتوا ب 0 ف انا كدا اخفيت ظل
-
-  );
         
   Theme build_bottom_Navigation_Bar() => Theme
   (

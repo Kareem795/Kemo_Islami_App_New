@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Model/sura_details_args.dart';
+import 'package:kemo_islami_app_2/Screens/Sura_Detils/sura_detils.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
 import 'package:kemo_islami_app_2/Utils/app_style.dart';
@@ -124,35 +126,51 @@ class Quran extends StatelessWidget
       itemBuilder: (context , index)
       //! build the Sura names list and Verses list
       {
-        return Row
+        return InkWell
         (
-          children: 
-          [
-            Expanded  //! اسماء صور
+          onTap: () 
+          {
+            Navigator.pushNamed
             (
-              flex: 50,
-              child: Text
+              context, 
+              Sura_Detils.route_name,
+              arguments: Sura_Details_Args
               (
-                Contants.suraNames[index], //! اسم الصورة
-                textAlign: TextAlign.center,
-                style: App_Style.title,
+                sura_name: Contants.suraNames[index],
+                file_name: "${index + 1}.txt",
               )
-            ),
-
-            Expanded //! عدد الايات في كل صورة
-            (
-              flex: 50,
-              child: 
-              Text
+            );
+          },
+          child: Row
+          (
+            children: 
+            [
+              Expanded  //! اسماء صور
               (
-                Contants.versesNumber[index].toString(), //! عدد اليات
-                textAlign: TextAlign.center,
-                style: App_Style.title,
+                flex: 50,
+                child: Text
+                (
+                  Contants.suraNames[index], //! اسم الصورة
+                  textAlign: TextAlign.center,
+                  style: App_Style.title,
+                )
+              ),
+          
+              Expanded //! عدد الايات في كل صورة
+              (
+                flex: 50,
+                child: 
+                Text
+                (
+                  Contants.versesNumber[index].toString(), //! عدد اليات
+                  textAlign: TextAlign.center,
+                  style: App_Style.title,
+                )
               )
-            )
-
-          ],
-
+          
+            ],
+          
+          ),
         );
       }
     ),

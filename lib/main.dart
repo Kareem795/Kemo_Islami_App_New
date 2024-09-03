@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Screens/Hadeth_Detils/hadeth_detils.dart';
 import 'package:kemo_islami_app_2/Screens/Home/home.dart';
 import 'package:kemo_islami_app_2/Screens/Splash/splash.dart';
+import 'package:kemo_islami_app_2/Screens/Sura_Detils/sura_detils.dart';
 
 void main() 
 {
@@ -19,8 +21,11 @@ class MyApp extends StatelessWidget
     (
       routes: 
       {
-        Splash.route_name: (_) => Splash(),
-        Home.route_name: (_) => Home(),
+        Splash.route_name: (_) => const Splash(),
+        Home.route_name: (_) => const Home(),
+        Sura_Detils.route_name: (_) => const Sura_Detils(),
+        hadeth_Details.route_name: (_) => hadeth_Details(),
+
       },
       initialRoute: Splash.route_name,
     );
