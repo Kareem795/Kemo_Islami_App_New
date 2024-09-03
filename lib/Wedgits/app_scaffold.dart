@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
 import 'package:kemo_islami_app_2/Utils/app_style.dart';
+import 'package:provider/provider.dart';
+
+import '../Provider/my_provider.dart';
 
 class App_Scaffold extends StatelessWidget 
 {
@@ -18,23 +21,18 @@ class App_Scaffold extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-    return Container
-    (
-      decoration: const BoxDecoration
-      (
-        image: DecorationImage
-        (
-          image: AssetImage(App_Assets.background)
-        )
-
-      ),
-      
-      child: Scaffold
+    var pro = Provider.of<MyProvider>(context);
+    return Stack(
+      children: [
+        Image.asset(pro.appTheme == ThemeMode.dark
+            ? App_Assets.backgroundDark
+            : App_Assets.background),
+        Scaffold
       (
         backgroundColor: Colors.transparent,
 
-        body: body, 
-        
+        body: body,
+
         appBar: AppBar
         (
           title: Text
@@ -49,7 +47,7 @@ class App_Scaffold extends StatelessWidget
 
         bottomNavigationBar: bottomNavigationBar,
 
-      )
+      ),]
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Ahadeth/ahadeth.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Quran/quran.dart';
@@ -19,7 +20,8 @@ class Home extends StatefulWidget
 
 class _HomeState extends State<Home> 
 {
-  int selected_tab_index = 1;
+  int selected_tab_index = 4;
+
   List<Widget> tabs = [Quran() , Ahadeth() , My_Radio() , Sebha() , Setting()];
   //! Note: we use List to make move to another tabs more flexible
 
@@ -28,7 +30,9 @@ class _HomeState extends State<Home>
   {
     return App_Scaffold
     (
-      appBar_title: "Islami",
+      appBar_title: "islami".tr(), 
+      //! This application bar title will change to Arabic or English 
+      //! depending on the program's language.
       body: tabs[selected_tab_index],
       bottomNavigationBar: build_bottom_Navigation_Bar(),
     );
@@ -54,12 +58,13 @@ class _HomeState extends State<Home>
       selectedIconTheme: IconThemeData(size: 36),
       selectedItemColor: App_Colors.accent,
 
-      items: const
+      items: 
       [
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Quran)) , label: "Quran"),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Ahdath)) , label: "Ahdath"),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Radio)) , label: "Radio"),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Sebha)) , label: "Sebha")
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Quran)) , label: "quran".tr()),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Ahdath)) , label: "ahdath".tr()),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Radio)) , label: "radio".tr()),
+        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Sebha)) , label: "sebha".tr()),
+        BottomNavigationBarItem(icon: Icon(Icons.settings) , label: "setting".tr()),
       ],
     ),
   );

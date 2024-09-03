@@ -15,4 +15,5 @@ abstract class App_Assets
   static const String Radio_next = "${default_path}Icon metro-next .png";
   static const String Radio_previous = "${default_path}Icon metro-previous.png";
   static const String Radio_play = "${default_path}Icon awesome-play.png";
+  static const String backgroundDark = "${default_path}dark_backgrond.png";
 }

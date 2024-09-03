@@ -1,0 +1,19 @@
+{
+  "islami": "اسلامي",
+  "sura_name": "اسم السوره",
+  "verses": "عدد الايات",
+  "quran": "قران",
+  "ahdath": "احاديث",
+  "radio": "راديو",
+  "sebha": "سبحا",
+  "language": "اللغه",
+  "theme": "الوضع",
+  "english": "انجليزي",
+  "arabic": "عربي",
+  "dark": "ليلي",
+  "light": "نهاري",
+  "Hadiths": "الاحاديث",
+  "number_of_tasbeehs" : "عدد التسبيحات",
+  "setting": "الاعدادات",
+  "errorMessage": "هناك خطأ , برجاء المحاوله في وقت لاحق"
+}

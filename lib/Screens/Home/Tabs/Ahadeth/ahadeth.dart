@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kemo_islami_app_2/Model/hadeth.dart';
@@ -58,9 +59,11 @@ class _AhadethState extends State<Ahadeth>
                 [
                   build_divider(),
 
-                  const Text
+                  Text
                   (
-                    "Hadiths" ,
+                    "Hadiths".tr() ,
+                    //! This Hadith title will change to Arabic or English 
+                    //! depending on the program's language.
                     textAlign: TextAlign.center,
                     style: App_Style.title,
                   ),

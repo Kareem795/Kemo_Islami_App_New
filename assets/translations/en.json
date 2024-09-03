@@ -1,0 +1,19 @@
+{
+  "islami": "Islami",
+  "sura_name": "Sura Name",
+  "language": "Language",
+  "arabic": "Arabic",
+  "english": "English",
+  "Hadiths": "Hadiths",
+  "number_of_tasbeehs" : "Number of Tasbeehs",
+  "quran": "ََQuran",
+  "ahdath": "Ahdath",
+  "radio": "Radio",
+  "sebha": "Sebha",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark",
+  "verses": "Verses",
+  "setting": "Setting",
+  "errorMessage": "Something went wrong, please try again later "
+}
