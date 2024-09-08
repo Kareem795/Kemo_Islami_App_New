@@ -6,7 +6,6 @@ import 'package:kemo_islami_app_2/Model/hadeth.dart';
 import 'package:kemo_islami_app_2/Screens/Hadeth_Detils/hadeth_detils.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
 import 'package:kemo_islami_app_2/Utils/contants.dart';
 
 class Ahadeth extends StatefulWidget 
@@ -65,7 +64,7 @@ class _AhadethState extends State<Ahadeth>
                     //! This Hadith title will change to Arabic or English 
                     //! depending on the program's language.
                     textAlign: TextAlign.center,
-                    style: App_Style.title,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
 
                   build_divider(),
@@ -100,8 +99,16 @@ class _AhadethState extends State<Ahadeth>
   Expanded build_ahadeth_list() => Expanded
   (
     flex: 70,
-    child: hadeth_list.isEmpty ? CircularProgressIndicator(color: App_Colors.primary,) : ListView.builder
+    child: hadeth_list.isEmpty ? CircularProgressIndicator(color: App_Colors.primary,) :
+    ListView.separated
     (
+      separatorBuilder: (context, index) => Divider
+      (
+        endIndent: 40,
+        indent: 40,
+        thickness: 1,
+      ),
+      
       itemCount: hadeth_list.length, 
       itemBuilder: (context , index)
       {
@@ -128,7 +135,7 @@ class _AhadethState extends State<Ahadeth>
                 (
                   hadeth_list[index].title,
                   textAlign: TextAlign.center,
-                  style: App_Style.title,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 )
               ),
             ],
@@ -140,8 +147,9 @@ class _AhadethState extends State<Ahadeth>
 
   Divider build_divider() => const Divider
   (
-    color: App_Colors.primary, 
-    thickness: 3 , 
-    indent: 10, 
+    //! we do not have to use it again
+    // color: App_Colors.primary, 
+    // thickness: 3 , 
+    // indent: 10, 
   );
 }

@@ -14,7 +14,7 @@ class MyThemeData
     (
       backgroundColor: Colors.transparent,
       elevation: 0,
-      iconTheme: const IconThemeData
+      iconTheme: IconThemeData
       (
         size: 30,
         color: App_Colors.accent,
@@ -55,7 +55,7 @@ class MyThemeData
 
       bodyMedium: TextStyle
       (
-        color: App_Colors.accentDark,
+        color: Colors.black,
         fontSize: 25,
         fontWeight: FontWeight.bold,
       ),
@@ -68,20 +68,6 @@ class MyThemeData
       ),
     ),
 
-    //! for examble --------------------
-    // colorScheme: const ColorScheme(
-    //   onPrimary: App_Colors.accent,
-    //   secondary: App_Colors.accent,
-    //   primary: App_Colors.accent,
-    //   error: App_Colors.accent,
-    //   onError: App_Colors.accent,
-    //   onSecondary: App_Colors.accent,
-    //   onSurface: App_Colors.accent,
-    //   brightness: Brightness.light,
-    //   surface: App_Colors.accent,
-    // ),
-    //!---------------------------------
-
   );
 
   //! Dark Theme
@@ -93,7 +79,7 @@ class MyThemeData
     (
       backgroundColor: Colors.transparent,
       elevation: 0,
-      iconTheme: const IconThemeData
+      iconTheme: IconThemeData
       (
         size: 30,
         color: Colors.white,
@@ -127,38 +113,26 @@ class MyThemeData
     (
       bodySmall: TextStyle
       (
-        color: Colors.white,
+        color: App_Colors.white,
         fontSize: 20,
         fontWeight: FontWeight.w600,
       ),
 
       bodyMedium: TextStyle
       (
-        color: App_Colors.white,
+        color: App_Colors.accentDark,
         fontSize: 25,
         fontWeight: FontWeight.bold,
       ),
 
       bodyLarge: TextStyle
       (
-        color: Colors.white,
+        color: App_Colors.white,
         fontSize: 30,
         fontWeight: FontWeight.w600,
       ),
     ),
 
-    //! for examble --------------------
-    // colorScheme: const ColorScheme(
-    //   onPrimary: App_Colors.accent,
-    //   secondary: App_Colors.accent,
-    //   primary: App_Colors.accent,
-    //   error: App_Colors.accent,
-    //   onError: App_Colors.accent,
-    //   onSecondary: App_Colors.accent,
-    //   onSurface: App_Colors.accent,
-    //   brightness: Brightness.light,
-    //   surface: App_Colors.accent,
-    // ),
-    //!---------------------------------
+    
   );
 }

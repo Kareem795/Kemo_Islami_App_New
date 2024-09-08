@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Provider/my_provider.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
+import 'package:provider/provider.dart';
 
 class My_Radio extends StatelessWidget 
 {
@@ -9,6 +10,7 @@ class My_Radio extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
+    var pro = Provider.of<MyProvider>(context);
     return Center
     (
       child: Column
@@ -35,7 +37,7 @@ class My_Radio extends StatelessWidget
           Text
           (
            "اذان القران الكريم",
-            style: App_Style.title.copyWith(fontSize: 30),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
 
           Expanded
@@ -46,17 +48,41 @@ class My_Radio extends StatelessWidget
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: 
               [
-                // ImageIcon(color: App_Colors.primary,AssetImage(App_Assets.Radio_previous)),
-                // ImageIcon(color: App_Colors.primary,AssetImage(App_Assets.Radio_play)),
-                // ImageIcon(color: App_Colors.primary,AssetImage(App_Assets.Radio_next)),
+                InkWell //! previous
+                (
+                  onTap: () {}, 
+                  child: Image.asset
+                  (
+                    pro.appTheme == ThemeMode.dark
+                    ? App_Assets.Radio_previous_dark
+                    : App_Assets.Radio_previous
+                  )
+                ),
 
-                InkWell(onTap: () {}, child: Image.asset(App_Assets.Radio_previous)),
-                InkWell(onTap: () {}, child: Image.asset(App_Assets.Radio_play)),
-                InkWell(onTap: () {}, child: Image.asset(App_Assets.Radio_next))
+                InkWell //! play
+                (
+                  onTap: () {}, 
+                  child: Image.asset
+                  (
+                    pro.appTheme == ThemeMode.dark
+                    ? App_Assets.Radio_play_dark
+                    : App_Assets.Radio_play
+                  )
+                ),
+
+                InkWell //! next
+                (
+                  onTap: () {}, 
+                  child: Image.asset
+                  (
+                    pro.appTheme == ThemeMode.dark
+                    ? App_Assets.Radio_next_dark
+                    : App_Assets.Radio_next
+                  )
+                )
               ],
             ),
           ),
-
           const SizedBox(height: 65),
         ]
       ),

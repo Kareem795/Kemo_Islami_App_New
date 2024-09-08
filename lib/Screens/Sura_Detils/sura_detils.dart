@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kemo_islami_app_2/Model/sura_details_args.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
 import 'package:kemo_islami_app_2/Wedgits/app_scaffold.dart';
 
 class Sura_Detils extends StatefulWidget 
@@ -98,7 +97,7 @@ class _Sura_DetilsState extends State<Sura_Detils>
           file_contants , 
           textAlign: TextAlign.center,
           textDirection:TextDirection.rtl,
-          style: App_Style.title.copyWith(fontSize: 16),
+          style: Theme.of(context).textTheme.bodyMedium
         ),
       )
     ),
@@ -123,7 +122,5 @@ class _Sura_DetilsState extends State<Sura_Detils>
   }
 
   //!-------------------Important-----------------//
-
-
 
 }

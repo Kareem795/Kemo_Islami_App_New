@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kemo_islami_app_2/Model/hadeth.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
 import 'package:kemo_islami_app_2/Wedgits/app_scaffold.dart';
 
 
@@ -37,7 +36,7 @@ class _hadeth_DetailsState extends State<hadeth_Details>
     (
       width: MediaQuery.of(context).size.width * 0.8,
       height: MediaQuery.of(context).size.height * 0.8,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration
       (
         color: App_Colors.white,
@@ -50,10 +49,9 @@ class _hadeth_DetailsState extends State<hadeth_Details>
           contant , 
           textAlign: TextAlign.center,
           textDirection:TextDirection.rtl,
-          style: App_Style.title.copyWith(fontSize: 16),
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       )
     ),
   );
-
 }

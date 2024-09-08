@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Provider/my_provider.dart';
 import 'package:kemo_islami_app_2/Screens/Home/home.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
+import 'package:provider/provider.dart';
 
 class Splash extends StatefulWidget 
 {
@@ -34,9 +36,15 @@ class _SplashState extends State<Splash>
   @override
   Widget build(BuildContext context) 
   {
+    var pro = Provider.of<MyProvider>(context);
     return Scaffold
     (
-      body: Image.asset(App_Assets.splash),
+      body: Image.asset
+      (
+        pro.appTheme == ThemeMode.dark
+        ? App_Assets.splash_dark
+        : App_Assets.splash
+      ),
     );
   }
 }

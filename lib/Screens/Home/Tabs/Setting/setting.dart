@@ -65,7 +65,6 @@ class Setting extends StatelessWidget
                   "english".tr(),
                   style: Theme.of(context).textTheme.bodySmall
                 ),
-
               ),
             ),
           ),

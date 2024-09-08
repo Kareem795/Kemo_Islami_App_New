@@ -8,6 +8,7 @@ import 'package:kemo_islami_app_2/Screens/Sura_Detils/sura_detils.dart';
 import 'package:provider/provider.dart';
 
 import 'Provider/my_provider.dart';
+import 'Wedgits/my_theme_data.dart';
 
 void main() async 
 {
@@ -54,12 +55,15 @@ class MyApp extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
+    var pro = Provider.of<MyProvider>(context);
     return MaterialApp
     (
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      
+      themeMode: pro.appTheme,
+      theme: MyThemeData.ligthTheme,
+      darkTheme: MyThemeData.darkTheme,
       routes: 
       {
         Splash.route_name: (_) => const Splash(),

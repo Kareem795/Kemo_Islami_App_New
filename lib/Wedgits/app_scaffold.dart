@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
 import 'package:provider/provider.dart';
 
 import '../Provider/my_provider.dart';
@@ -23,31 +22,33 @@ class App_Scaffold extends StatelessWidget
   {
     var pro = Provider.of<MyProvider>(context);
     return Stack(
-      children: [
+      children: 
+      [
         Image.asset(pro.appTheme == ThemeMode.dark
-            ? App_Assets.backgroundDark
+            ? App_Assets.background_dark
             : App_Assets.background),
         Scaffold
-      (
-        backgroundColor: Colors.transparent,
-
-        body: body,
-
-        appBar: AppBar
         (
-          title: Text
+          backgroundColor: Colors.transparent,
+
+          body: body,
+
+          appBar: AppBar
           (
-            appBar_title??"",
-            style: App_Style.AppBar_TextStyle,
+            title: Text
+            (
+              appBar_title??"",
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            centerTitle: true,
+            backgroundColor: App_Colors.transparent,
+            elevation: 0, // to make the elevation not appearing
           ),
-          centerTitle: true,
-          backgroundColor: App_Colors.transparent,
-          elevation: 0, // to make the elevation not appearing
+
+          bottomNavigationBar: bottomNavigationBar,
+
         ),
-
-        bottomNavigationBar: bottomNavigationBar,
-
-      ),]
+      ]
     );
   }
 }

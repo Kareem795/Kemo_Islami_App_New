@@ -1,13 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kemo_islami_app_2/Model/sura_details_args.dart';
-import 'package:kemo_islami_app_2/Provider/my_provider.dart';
 import 'package:kemo_islami_app_2/Screens/Sura_Detils/sura_detils.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
 import 'package:kemo_islami_app_2/Utils/contants.dart';
-import 'package:provider/provider.dart';
 
 class Quran extends StatelessWidget 
 {
@@ -16,7 +13,6 @@ class Quran extends StatelessWidget
   @override
   Widget build(BuildContext context) 
   {
-
     return Column
     (
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,7 +55,7 @@ class Quran extends StatelessWidget
                           //! This Sura Name will change to Arabic or English 
                           //! depending on the program's language.
                           textAlign: TextAlign.center,
-                          style: App_Style.title,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         )
                       ),
 
@@ -71,7 +67,7 @@ class Quran extends StatelessWidget
                           //! This Verses Number will change to Arabic or English 
                           //! depending on the program's language.
                           textAlign: TextAlign.center,
-                          style: App_Style.title,
+                          style: Theme.of(context).textTheme.bodyLarge,
                         )
                       ),
 
@@ -89,7 +85,7 @@ class Quran extends StatelessWidget
               const VerticalDivider
               (
                 thickness: 3 , 
-                color: App_Colors.primary , 
+                color: App_Colors.accentDark ,
                 indent: 9,
               ) 
               //! The vertical line to separate the two lists.
@@ -100,28 +96,18 @@ class Quran extends StatelessWidget
             ]
           ),
         )
-
       ],
-
     );
   }
 
   Divider build_divider() => const Divider
   (
-    color: App_Colors.primary, 
-    thickness: 3 , 
-    indent: 10, 
+    //! we do not have to use it again
+    // color: App_Colors.primary,
+    // thickness: 3 ,
+    // indent: 10,
   );
 
-  /*
-    Container == Divider(color: App_Colors.primary, thickness: 3,),
-    (
-      width: double.infinity,
-      height: 3,
-      color: App_Colors.primary,
-    ),
-        
-  */
 
   Expanded build_suras_list() => Expanded
   (
@@ -160,7 +146,7 @@ class Quran extends StatelessWidget
                 (
                   Contants.suraNames[index], //! اسم الصورة
                   textAlign: TextAlign.center,
-                  style: App_Style.title,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 )
               ),
           
@@ -172,16 +158,13 @@ class Quran extends StatelessWidget
                 (
                   Contants.versesNumber[index].toString(), //! عدد اليات
                   textAlign: TextAlign.center,
-                  style: App_Style.title,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 )
               )
-          
             ],
-          
           ),
         );
       }
     ),
   );
-
 }

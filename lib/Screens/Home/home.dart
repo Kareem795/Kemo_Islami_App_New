@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Provider/my_provider.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Ahadeth/ahadeth.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Quran/quran.dart';
 import 'package:kemo_islami_app_2/Screens/Home/Tabs/Radio/radio.dart';
@@ -8,6 +9,7 @@ import 'package:kemo_islami_app_2/Screens/Home/Tabs/Setting/setting.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
 import 'package:kemo_islami_app_2/Wedgits/app_scaffold.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget 
 {
@@ -20,7 +22,7 @@ class Home extends StatefulWidget
 
 class _HomeState extends State<Home> 
 {
-  int selected_tab_index = 4;
+  int selected_tab_index = 0;
 
   List<Widget> tabs = [Quran() , Ahadeth() , My_Radio() , Sebha() , Setting()];
   //! Note: we use List to make move to another tabs more flexible
@@ -28,6 +30,7 @@ class _HomeState extends State<Home>
   @override
   Widget build(BuildContext context) 
   {
+    var pro = Provider.of<MyProvider>(context);
     return App_Scaffold
     (
       appBar_title: "islami".tr(), 
@@ -37,35 +40,30 @@ class _HomeState extends State<Home>
       bottomNavigationBar: build_bottom_Navigation_Bar(),
     );
   }
-        
-  Theme build_bottom_Navigation_Bar() => Theme
+
+  BottomNavigationBar build_bottom_Navigation_Bar() => BottomNavigationBar
   (
-    //! Note: we use Theme to solve the problem of the navigation bar color
+    currentIndex: selected_tab_index,
+    //! Note: we use currentIndex to select tab
 
-    data: ThemeData(canvasColor: App_Colors.primary),
-    child: BottomNavigationBar
-    (
-      currentIndex: selected_tab_index,
-      //! Note: we use currentIndex to select tab
+    onTap: (index)
+    {
+      selected_tab_index = index;
+      setState(() {});
+      //! to update the UI with new selected tab index
+    },
 
-      onTap: (index) 
-      {
-        selected_tab_index = index;
-        setState(() {}); 
-        //! to update the UI with new selected tab index
-      },
+    selectedIconTheme: IconThemeData(size: 36),
+    selectedItemColor: App_Colors.accent,
 
-      selectedIconTheme: IconThemeData(size: 36),
-      selectedItemColor: App_Colors.accent,
-
-      items: 
-      [
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Quran)) , label: "quran".tr()),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Ahdath)) , label: "ahdath".tr()),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Radio)) , label: "radio".tr()),
-        BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Sebha)) , label: "sebha".tr()),
-        BottomNavigationBarItem(icon: Icon(Icons.settings) , label: "setting".tr()),
-      ],
-    ),
+    items:
+    [
+      BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Quran)) , label: "quran".tr()),
+      BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Ahdath)) , label: "ahdath".tr()),
+      BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Radio)) , label: "radio".tr()),
+      BottomNavigationBarItem(icon: ImageIcon(AssetImage(App_Assets.icon_Sebha)) , label: "sebha".tr()),
+      BottomNavigationBarItem(icon: Icon(Icons.settings) , label: "setting".tr()),
+    ],
+    
   );
 }

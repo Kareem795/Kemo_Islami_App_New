@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:kemo_islami_app_2/Provider/my_provider.dart';
 import 'package:kemo_islami_app_2/Utils/app_assets.dart';
 import 'package:kemo_islami_app_2/Utils/app_colors.dart';
-import 'package:kemo_islami_app_2/Utils/app_style.dart';
+import 'package:provider/provider.dart';
 
 class Sebha extends StatefulWidget 
 {
@@ -43,6 +44,7 @@ class _SebhaState extends State<Sebha>
   @override
   Widget build(BuildContext context) 
   {
+    var pro = Provider.of<MyProvider>(context);
     return Scaffold
     (
       backgroundColor: Colors.transparent,
@@ -64,7 +66,12 @@ class _SebhaState extends State<Sebha>
                   (
                     margin: EdgeInsets.only(left: 50, top: 14),
                     alignment: Alignment.topCenter,
-                    child: Image.asset(App_Assets.Sebha_head)
+                    child: Image.asset
+                    (
+                      pro.appTheme == ThemeMode.dark
+                      ? App_Assets.Sebha_head_dark
+                      : App_Assets.Sebha_head
+                    )
                   ),
 
                   Container
@@ -75,10 +82,14 @@ class _SebhaState extends State<Sebha>
                     (
                       turns: spin, //! Control the rotation speed
                       duration: const Duration(seconds: 1),
-                      child: Image.asset(App_Assets.Sebha_body),
+                      child: Image.asset
+                      (
+                        pro.appTheme == ThemeMode.dark
+                        ? App_Assets.Sebha_body_dark
+                        : App_Assets.Sebha_body
+                      )
                     ),
                   ),
-
                 ]
               ),
             ),
@@ -106,14 +117,16 @@ class _SebhaState extends State<Sebha>
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration
                     (
-                      color: App_Colors.primary,
+                      color: pro.appTheme == ThemeMode.dark 
+                      ? App_Colors.primaryDark 
+                      : App_Colors.primary,
                       borderRadius: BorderRadius.circular(20.0)
                     ),
 
                     child: Text
                     (
                       "$counter",
-                      style: TextStyle(fontSize: 24),
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
 
@@ -124,7 +137,9 @@ class _SebhaState extends State<Sebha>
                     onPressed: add,
                     style: ElevatedButton.styleFrom
                     (
-                      backgroundColor: App_Colors.primary,
+                      backgroundColor: pro.appTheme == ThemeMode.dark 
+                      ? App_Colors.accentDark 
+                      : App_Colors.primary,
                       shape: RoundedRectangleBorder
                       (
                         borderRadius: BorderRadius.circular(30.0),
@@ -134,13 +149,15 @@ class _SebhaState extends State<Sebha>
                     child: Text
                     (
                       text,
-                      style: App_Style.title.copyWith
+                      style: TextStyle
                       (
-                        fontSize: 24 , 
-                        color: Colors.white
+                        color: pro.appTheme == ThemeMode.dark
+                        ? Colors.black 
+                        : Colors.white,
+                        fontSize: 30.0,
+                        
                       ),
                     ),
-
                   ),
                 ],
               ),
